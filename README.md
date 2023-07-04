@@ -10,6 +10,8 @@ The solution should contain the following:
 -  API enpoint(s) delivering the data in json format
 -  The API must be able to deliver all the data represented on https://www.sanctionsmap.eu
 
+Note: Content on the website is provided under Creative Commons Attribution 4.0 International (CC BY 4.0) licence. This means that reuse is allowed, provided appropriate credit is given and changes are indicated.
+
 
 
 ## Proposed Solution
