@@ -10,10 +10,12 @@ The solution should contain the following:
 -  API enpoint(s) delivering the data in json format
 -  The API must be able to deliver all the data represented on https://www.sanctionsmap.eu
 
+Note: Content on the website above is provided under [Creative Commons Attribution 4.0 International (CC BY 4.0) licence](https://creativecommons.org/licenses/by/4.0/). This means that reuse is allowed, provided appropriate credit is given and changes are indicated.
+
 
 
 ## Proposed Solution
 ![](images/sanctions_design.png)
 
-This design is suggested to enable decoupling of the back-end and front-end. Currently, the website in question performs logic on it's data in the front-end. This will make it harder to scale and can lead to issues rendering the front-end unusable if the logic is incorrect. 
-Having the data structure proposed will allow for future enrichment of the data and more control without impacting the api and/or front-end.
+This design is suggested to enable decoupling of the back-end and front-end. Currently, the website in question performs logic on the data in the front-end. This will make it harder to scale and can lead to issues rendering the front-end unusable if the logic is incorrect. 
+The structure proposed will allow for future enrichment of the data and more control without impacting the api and/or front-end.
