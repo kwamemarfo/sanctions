@@ -6,7 +6,6 @@ import os
 class Load_data:
     
     def into_database(self, file_name, dataframe):
-        print(file_name)
         try:
             database_folder = "Database/"
             database_file = f"{database_folder}sanctions.db"

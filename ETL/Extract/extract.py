@@ -143,13 +143,16 @@ class Extract:
             current_file_names = self.create_file_names_with_dates()
             pub_date, person_urls = self.get_person_urls()
             
-            if self.enable_download(person_one, pub_date):
+            enable_download_person_one = self.enable_download(person_one, pub_date)
+            enable_download_person_two = self.enable_download(person_two, pub_date)
+            
+            if enable_download_person_one:
                 person_one_download = self.download_file(person_urls[0][1], current_file_names[1])
             
-            if self.enable_download(person_two, pub_date):
+            if enable_download_person_two:
                 person_two_download = self.download_file(person_urls[1][1], current_file_names[2])
                 
-            if ('person_two_download' or 'person_one_download') in locals():
+            if enable_download_person_one or enable_download_person_two:
                 regimes_download = self.download_file(self.regimes_url, current_file_names[0])
                        
         
