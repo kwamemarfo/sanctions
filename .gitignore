@@ -1,5 +1,6 @@
+**/__pycache__/
+**/.ipynb_checkpoints/
 sanctions.ipynb
 Database
 ETL/analysis/
-**/__pycache__/
-**/.ipynb_checkpoints/
+ETL/Extract/Downloaded_Files
