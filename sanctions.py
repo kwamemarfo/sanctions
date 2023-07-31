@@ -31,14 +31,20 @@ class Sanctions:
                 loaded_databases[file_name] = load_into_db
         return loaded_databases
     
-    
+    def clean_files(self):
+        cleaned = clean_up.Clean_up()
+        cleaned = cleaned.files()
+        return cleaned
+        
+        
     def main(self):
         extract = self.extract()
         
         transform = self.transform(extract)
         load = self.load(transform)
         
-        ### Clean_up code here
+        clean_files = self.clean_files()
         
         print(load.keys())
+        print(clean_files)
         print("Done with ETL, now trigger Data Asset creation if load is True (i.e contains data)")
