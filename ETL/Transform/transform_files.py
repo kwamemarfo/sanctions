@@ -13,7 +13,7 @@ class Transform():
         
     
     def get_downloaded_files(self):
-        downloaded_files = [glob.glob(f'ETL/Extract/Downloaded_Files/{file[0]}*') 
+        downloaded_files = [glob.glob(f"ETL/Extract/Downloaded_Files/{file[0]}*") 
                             for file in self.downloaded_files if len(file) > 1]
         return downloaded_files
     
@@ -21,7 +21,7 @@ class Transform():
     def transform_csv(self, files_list):
         if files_list:
             file_to_transform = max(files_list)
-            file_transformed = pd.read_csv(file_to_transform, sep=';')
+            file_transformed = pd.read_csv(file_to_transform, sep=";")
             return file_transformed
         
         
@@ -31,7 +31,7 @@ class Transform():
             file_to_transform = max(files_list)
             # For any issues that might occur such as empty json or incorrect structure
             try:
-                with open(file_to_transform, encoding='utf-8') as reg:
+                with open(file_to_transform, encoding="utf-8") as reg:
                     data = json.load(reg)
                 file_transformed = pd.json_normalize(data, "data")
                 return file_transformed
@@ -41,28 +41,29 @@ class Transform():
             
     def regime_rename(self, data):
         if isinstance(data, pd.DataFrame):
+            # Drop empty or constant columns
+            data = data.drop(columns=["under_construction", "category.data", "court_rulings.data", 
+                                      "country.data", "has_lists", "has_members", "has_fsd_members"])
+            
             data = data.rename(columns=
                                {
-                                   'id': 'regimes_id', 
-                                   'type': 'regimes_type', 
-                                   'adopted_by.data.id' : 'adopted_by_data_id', 
-                                   'adopted_by.data.title' : 'adopted_by_data_title', 
-                                   'country.data.code' : 'country_data_code', 
-                                   'country.data.title' : 'country_data_title', 
-                                   'category.data' : 'category_data', 
-                                   'court_rulings.data' : 'court_rulings_data', 
-                                   'legal_acts.data' : 'legal_acts_data', 
-                                   'measures.data' : 'measures_data', 
-                                   'guidances.data' : 'guidances_data', 
-                                   'general_guidances.data' : 'general_guidances_data', 
-                                   'country.data' : 'country_data', 
-                                   'category.data.id' : 'category_data_id', 
-                                   'category.data.title' : 'category_data_title'
+                                   "id": "regimes_id", 
+                                   "type": "regimes_type", 
+                                   "adopted_by.data.id" : "adopted_by_data_id", 
+                                   "adopted_by.data.title" : "adopted_by_data_title", 
+                                   "country.data.code" : "country_data_code", 
+                                   "country.data.title" : "country_data_title", 
+                                   "legal_acts.data" : "legal_acts_data", 
+                                   "measures.data" : "measures_data", 
+                                   "guidances.data" : "guidances_data", 
+                                   "general_guidances.data" : "general_guidances_data", 
+                                   "category.data.id" : "category_data_id", 
+                                   "category.data.title" : "category_data_title"
                                })
             
             # Put the json columns into strings, the table dtype will be defined in data assets
             for col in data.columns[:]:
-                data[f'{col}'] = data[f'{col}'].astype(str)
+                data[f"{col}"] = data[f"{col}"].astype(str)
             return data
     
 
