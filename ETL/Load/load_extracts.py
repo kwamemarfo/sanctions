@@ -3,6 +3,7 @@ import sqlite3
 import os
 
 # should inherit from transform so Load(Transform)
+# class LoadData:
 class Load_data:
     
     def into_database(self, file_name, dataframe):
