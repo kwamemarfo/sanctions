@@ -9,7 +9,7 @@
 
 This project aims to develop a scalable back-end solution for managing data on individuals sanctioned by the EU and/or UN. The solution should consist of the following key components:
 
-- **Database**: A robust and scalable database will be implemented to store all the relevant data securely.
+- **Database**: A robust and scalable database will be implemented to store all the relevant data.
 
 - **API Endpoints**: The solution will provide API endpoint(s) to deliver the data in JSON format. These endpoints will enable users to access the necessary information efficiently.
 
