@@ -7,11 +7,15 @@
 ## Requirements
 
 
-The requirements for this project are to create a scalable back-end solution for individuals sanctioned by the EU and/or UN. The solution should include the following components:
+This project aims to develop a scalable back-end solution for managing data on individuals sanctioned by the EU and/or UN. The solution should consist of the following key components:
 
-- Database for storing the data
-- API endpoint(s) to deliver the data in JSON format
-- The API must be able to provide all the necessary data, similar to https://www.sanctionsmap.eu
+- **Database**: A robust and scalable database will be implemented to store all the relevant data securely.
+
+- **API Endpoints**: The solution will provide API endpoint(s) to deliver the data in JSON format. These endpoints will enable users to access the necessary information efficiently.
+
+- **Comprehensive Data**: The API must be capable of providing all the essential data required for the project, similar to the functionality offered by [https://www.sanctionsmap.eu](https://www.sanctionsmap.eu).
+
+By fulfilling these requirements, the project will deliver a reliable and efficient back-end solution for managing and accessing data on sanctioned individuals.
 
 
 
