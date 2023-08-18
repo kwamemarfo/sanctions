@@ -36,11 +36,11 @@ This project requires two external sources:
 
 During the staging stage, an ETL (Extract, Transform, Load) method will be implemented. Ideally, this would be done using a tool like Apache Airflow, which provides proper logs. However, due to budget constraints and limited time on free-tier cloud accounts, we will develop our own ETL solution. A cron job will be applied daily to execute the ETL process.
 
-For more details and the code used for the ETL process, please refer to the "ETL/" folder.
+For more details and the code used for the ETL process, please refer to the "ETL" folder.
 
 ### Database
 
-The database for this project will be hosted on a free-tier account, most likely using PostgreSQL. However, other databases like MySQL can be considered if necessary. For detailed information about the database architecture and structure, please refer to the "Data_Assets" folder.
+The database for this project will be hosted on a free-tier account, most likely using PostgreSQL. However, other databases like MySQL can be considered if necessary. For detailed information about the database architecture and structure, please refer to the "Data Assets" folder.
 
 ### API
 
