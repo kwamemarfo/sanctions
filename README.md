@@ -50,7 +50,7 @@ Transformed data will be loaded into the Data Warehouse. A data model will be cr
 ### Data Models
 Data models are derived from the transformed data in the Data Warehouse. These models will be used to generate the necessary data required for the API endpoints.
 
-For more details about the Data Warehouse, transformations, data models, and the overall process, please refer to the "Data Assets" folders.
+For more details about the Data Warehouse, transformations, data models, and the overall process, please refer to the `Data Assets` folders.
 
 ## API
 The API will utilise the data models to provide the required data for endpoints. The API endpoints will be designed to serve the project's specific needs.
