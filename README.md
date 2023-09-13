@@ -17,6 +17,8 @@ This project aims to develop a scalable back-end solution for managing data on i
 
 By fulfilling these requirements, the project will deliver a reliable and efficient back-end solution for managing and accessing data on sanctioned individuals.
 
+Note: This project needs to be completed within a budget of £0, hence, it will be necessary to explore cost-effective solutions and implement innovative methods.
+
 
 
   
@@ -24,28 +26,33 @@ By fulfilling these requirements, the project will deliver a reliable and effici
 
 <div align="center">
   
-![Proposed Solution](https://i.postimg.cc/VvjmhTsf/top-view-2-drawio.png)
+![Proposed Solution](https://i.postimg.cc/9fyQ5GRc/database-architect-drawio.png)
     
 </div>
+
+In order to facilitate this project, above data pipeline solution has been devised. The solution comprises of the following sections:
     
-### External Sources
+### Sources
+The data sources for this project include an API and a CSV file. The API data will be fetched from [https://www.sanctionsmap.eu/api/v1/regime](https://www.sanctionsmap.eu/api/v1/regime), while the CSV file will be scraped from [https://webgate.ec.europa.eu/fsd/fsf/public/rss](https://webgate.ec.europa.eu/fsd/fsf/public/rss).
 
-This project requires two external sources:
+### Extract & Load
+The data will be extracted from the sources and saved as a backup file on [pythonanywhere.com](https://www.pythonanywhere.com) in the directory named `ETL/Extract/Downloaded_Files`. Afterward, minor transformations will be applied to the extracted files to ensure they can be loaded into the data lake effectively. Please refer to the "ETL" folder for more information on the Extract & Load process.
 
-- A CSV file ("peoples.csv") containing information about the sanctioned individuals. You can find this file at [https://webgate.ec.europa.eu/fsd/fsf/public/rss](https://webgate.ec.europa.eu/fsd/fsf/public/rss).
-- A JSON file ("regime.json") containing information about the respective countries. You can access this file at [https://www.sanctionsmap.eu/api/v1/regime](https://www.sanctionsmap.eu/api/v1/regime).
+### Data Lake
+The Data Lake serves as a storage location for the extracted data files. The files will be stored in a SQL-type database within the Data Lake.
 
+### Transform
+Once the files are in the Data Lake, various transformations will be applied, including normalizations, data quality checks, and removal of unnecessary fields. These transformations will prepare the data for further processing.
 
-### Staging
+### Data Warehouse
+Transformed data will be loaded into the Data Warehouse. A data model will be created based on the transformed data. 
 
-During the staging stage, an ETL (Extract, Transform, Load) method will be implemented. Ideally, this would be done using a tool like Apache Airflow, which provides proper logs. However, due to budget constraints and limited time on free-tier cloud accounts, we will develop our own ETL solution. A cron job will be applied daily to execute the ETL process.
+### Data Models
+Data models are derived from the transformed data in the Data Warehouse. These models will be used to generate the necessary data required for the API endpoints.
 
-For more details and the code used for the ETL process, please refer to the "ETL" folder.
+For more details about the Data Warehouse, transformations, data models, and the overall process, please refer to the "Data Assets" folders.
 
-### Database
+## API
+The API will utilise the data models to provide the required data for endpoints. The API endpoints will be designed to serve the project's specific needs.
 
-The database for this project will be hosted on a free-tier account, most likely using PostgreSQL. However, other databases like MySQL can be considered if necessary. For detailed information about the database architecture and structure, please refer to the "Data Assets" folder.
-
-### API
-
-To accommodate the budget constraints of this project, a cost-effective approach will be taken to build the API on pythonanywhere.com. However, an additional API will be created in Java to maintain knowledge in that language, although it will not be utilized in this project. For more information about the API, please refer to the "api" folder.
+Please refer to the corresponding folders and sections mentioned above for detailed information on each step of the data pipeline.
