@@ -1,4 +1,4 @@
-# Data Assets README
+# Data Assets
 
 This README provides an overview of the data assets in the project and explains the data pipeline, data lake, data warehouse, and data modeling methods used.
 
@@ -6,7 +6,7 @@ This README provides an overview of the data assets in the project and explains 
 
 The data pipeline in this project follows the illustrated diagram below:
 
-![Data Pipeline](https://i.postimg.cc/tRn93Wyq/data-arc-physical-drawio.png)
+![Data Pipeline](https://i.postimg.cc/tJcVSmzC/data-arc-physical-2-drawio.png)
 
 ## Data Lake and Data Warehouse
 
