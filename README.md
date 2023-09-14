@@ -25,7 +25,7 @@ Note: This project needs to be completed within a budget of £0, hence, it will 
 
 <div align="center">
   
-![Proposed Solution](https://i.postimg.cc/2yDJp7cZ/database-architect-2-drawio.png)
+![Proposed Pipeline Solution](https://i.postimg.cc/sX4Rf465/database-architect-2-drawio.png)
     
 </div>
 
@@ -62,10 +62,10 @@ The proposed solution will utilize Terraform for Infrastructure as Code (IaC) to
 
 The initial design for this project aimed to create a fully Python-based solution using pythonanywhere.com. However, it was discovered that this approach was not scalable and/or feasible due to limitations imposed by pythonanywhere.com.
 
-One major challenge encountered was the need to whitelist the data sources' websites in order to enable data extraction. Unfortunately, the time and resources required to pursue this whitelisting process were not deemed efficient for the project.
+One of the challenges encountered was the need to whitelist the data sources' websites in order to enable data extraction. Unfortunately, the time and resources required to pursue this whitelisting process were not deemed efficient for the project.
 
 As a result, an alternative solution using AWS services was devised to overcome these limitations. The proposed data pipeline, as described in the "Proposed Solution" section, utilizes AWS Glue, S3, Lambda functions, and Amazon API Gateway to achieve the project's objectives.
 
-By transitioning to this AWS-based solution, we can bypass the whitelisting limitations and ensure the efficient extraction, transformation, and storage of the required data.
+By transitioning to this AWS-based solution, we can bypass the whitelisting limitations and ensure the efficient extraction, transformation, and storage of the required data in a scalable manner.
 
 Please refer to the "Proposed Solution" section for a detailed explanation of the alternative solution.
