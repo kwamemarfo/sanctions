@@ -17,8 +17,7 @@ This project aims to develop a scalable back-end solution for managing data on i
 
 By fulfilling these requirements, the project will deliver a reliable and efficient back-end solution for managing and accessing data on sanctioned individuals.
 
-Note: This project needs to be completed within a budget of £0, hence, it will be necessary to explore cost-effective solutions and implement innovative methods.
-
+Note: This project needs to be completed within a budget of £0, hence, it will be necessary to explore cost-effective solutions and implement innovative methods. 
 
 
   
@@ -26,33 +25,54 @@ Note: This project needs to be completed within a budget of £0, hence, it will 
 
 <div align="center">
   
-![Proposed Solution](https://i.postimg.cc/9fyQ5GRc/database-architect-drawio.png)
+![Proposed Solution](https://i.postimg.cc/2yDJp7cZ/database-architect-2-drawio.png)
     
 </div>
 
-In order to facilitate this project, above data pipeline solution has been devised. The solution comprises of the following sections:
-    
+To address the requirements of this project, a data pipeline will be implemented using Terraform and AWS services. The pipeline will consist of the following components:
+
 ### Sources
-The data sources for this project include an API and a CSV file. The API data will be fetched from [https://www.sanctionsmap.eu/api/v1/regime](https://www.sanctionsmap.eu/api/v1/regime), while the CSV file will be scraped from [https://webgate.ec.europa.eu/fsd/fsf/public/rss](https://webgate.ec.europa.eu/fsd/fsf/public/rss).
+
+Two data sources will be extracted for processing: a CSV file from [https://webgate.ec.europa.eu/fsd/fsf/public/rss](https://webgate.ec.europa.eu/fsd/fsf/public/rss) and a JSON file from [https://www.sanctionsmap.eu/api/v1/regime](https://www.sanctionsmap.eu/api/v1/regime).
 
 ### Extract & Load
-The data will be extracted from the sources and saved as a backup file on [pythonanywhere.com](https://www.pythonanywhere.com) in the directory named `ETL/Extract/Downloaded_Files`. Afterward, minor transformations will be applied to the extracted files to ensure they can be loaded into the data lake effectively. Please refer to the "ETL" folder for more information on the Extract & Load process.
 
-### Data Lake
-The Data Lake serves as a storage location for the extracted data files. The files will be stored in a SQL-type database within the Data Lake.
+The extracted files will be loaded into an S3 bucket, serving as the data lake, where the original files will be preserved. AWS Glue will be used for the extraction and loading process.
 
-### Transform
-Once the files are in the Data Lake, various transformations will be applied, including normalizations, data quality checks, and removal of unnecessary fields. These transformations will prepare the data for further processing.
+### Data Lake 
 
-### Data Warehouse
-Transformed data will be loaded into the Data Warehouse. A data model will be created based on the transformed data. 
+The data lake, implemented using S3, will provide a centralized storage location for the extracted data, ensuring efficient storage and retrieval of large volumes of data.
 
-### Data Models
-Data models are derived from the transformed data in the Data Warehouse. These models will be used to generate the necessary data required for the API endpoints.
+### Transform 
+
+AWS Glue will be used to transform the extracted data. Glue provides a serverless ETL service capable of performing various transformations. If necessary, alternative transformation options such as dbt may be considered and explored..
+
+### Data Warehouse 
+
+The transformed data will be stored in another S3 bucket, serving as the data warehouse. This will facilitate easy access and analysis of the transformed data.
+
+### Models 
+
+Models will be created within the Data Warehouse. AWS Glue will be employed to perform these transformations, resulting in the creation of the desired models. 
 
 For more details about the Data Warehouse, transformations, data models, and the overall process, please refer to the `Data Assets` folders.
 
-## API
-The API will utilise the data models to provide the required data for endpoints. The API endpoints will be designed to serve the project's specific needs.
+### API 
 
-Please refer to the corresponding folders and sections mentioned above for detailed information on each step of the data pipeline.
+The API endpoints will be created based on the models defined in the data warehouse. These endpoints will expose the transformed data, allowing for consumption by applications and/or for analytics purposes.
+
+The proposed solution will utilize Terraform for Infrastructure as Code (IaC) to build the pipeline. Additionally, AWS Elastic Beanstalk will be used for continuous integration and deployment (CI/CD). Lambda functions will be leveraged to execute specific tasks within the pipeline, while Amazon API Gateway will be used to expose the API endpoints.
+ 
+ 
+
+## Challenges
+
+The initial design for this project aimed to create a fully Python-based solution using pythonanywhere.com. However, it was discovered that this approach was not scalable and/or feasible due to limitations imposed by pythonanywhere.com.
+
+One major challenge encountered was the need to whitelist the data sources' websites in order to enable data extraction. Unfortunately, the time and resources required to pursue this whitelisting process were not deemed efficient for the project.
+
+As a result, an alternative solution using AWS services was devised to overcome these limitations. The proposed data pipeline, as described in the "Proposed Solution" section, utilizes AWS Glue, S3, Lambda functions, and Amazon API Gateway to achieve the project's objectives.
+
+By transitioning to this AWS-based solution, we can bypass the whitelisting limitations and ensure the efficient extraction, transformation, and storage of the required data.
+
+Please refer to the "Proposed Solution" section for a detailed explanation of the alternative solution.
