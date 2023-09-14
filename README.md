@@ -32,33 +32,26 @@ Note: This project needs to be completed within a budget of £0, hence, it will 
 To address the requirements of this project, a data pipeline will be implemented using Terraform and AWS services. The pipeline will consist of the following components:
 
 ### Sources
-
 Two data sources will be extracted for processing: a CSV file from [https://webgate.ec.europa.eu/fsd/fsf/public/rss](https://webgate.ec.europa.eu/fsd/fsf/public/rss) and a JSON file from [https://www.sanctionsmap.eu/api/v1/regime](https://www.sanctionsmap.eu/api/v1/regime).
 
 ### Extract & Load
-
 The extracted files will be loaded into an S3 bucket, serving as the data lake, where the original files will be preserved. AWS Glue will be used for the extraction and loading process.
 
 ### Data Lake 
-
 The data lake, implemented using S3, will provide a centralized storage location for the extracted data, ensuring efficient storage and retrieval of large volumes of data.
 
 ### Transform 
-
 AWS Glue will be used to transform the extracted data. Glue provides a serverless ETL service capable of performing various transformations. If necessary, alternative transformation options such as dbt may be considered and explored..
 
 ### Data Warehouse 
-
 The transformed data will be stored in another S3 bucket, serving as the data warehouse. This will facilitate easy access and analysis of the transformed data.
 
 ### Models 
-
 Models will be created within the Data Warehouse. AWS Glue will be employed to perform these transformations, resulting in the creation of the desired models. 
 
 For more details about the Data Warehouse, transformations, data models, and the overall process, please refer to the `Data Assets` folders.
 
 ### API 
-
 The API endpoints will be created based on the models defined in the data warehouse. These endpoints will expose the transformed data, allowing for consumption by applications and/or for analytics purposes.
 
 The proposed solution will utilize Terraform for Infrastructure as Code (IaC) to build the pipeline. Additionally, AWS Elastic Beanstalk will be used for continuous integration and deployment (CI/CD). Lambda functions will be leveraged to execute specific tasks within the pipeline, while Amazon API Gateway will be used to expose the API endpoints.
