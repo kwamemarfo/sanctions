@@ -69,3 +69,6 @@ As a result, an alternative solution using AWS services was devised to overcome 
 By transitioning to this AWS-based solution, we can bypass the whitelisting limitations and ensure the efficient extraction, transformation, and storage of the required data in a scalable manner.
 
 Please refer to the "Proposed Solution" section for a detailed explanation of the alternative solution.
+
+### Update
+Due to other commitments, this project will resume again after September 2024
